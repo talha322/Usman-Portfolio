@@ -326,6 +326,17 @@ section {
 .about-image {
     opacity: 0;
     transform: translateY(30px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.about-photo {
+    width: 100%;
+    height: auto;
+    max-width: 400px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
 .image-placeholder {
@@ -390,6 +401,14 @@ section {
 .service-description {
     color: var(--dark-gray);
     line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.service-btn {
+    padding: 10px 25px;
+    font-size: 0.9rem;
+    margin-top: 15px;
+    display: inline-block;
 }
 
 /* Portfolio Section */
@@ -827,5 +846,522 @@ section {
 
     .contact-form {
         padding: 25px;
+    }
+}
+
+/* Service Page Styles */
+.service-hero {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    padding: 120px 0 80px;
+    color: var(--white);
+}
+
+.service-hero-content {
+    text-align: center;
+}
+
+.back-link {
+    display: inline-block;
+    color: var(--white);
+    text-decoration: none;
+    margin-bottom: 20px;
+    font-size: 1rem;
+    transition: var(--transition);
+}
+
+.back-link:hover {
+    opacity: 0.8;
+}
+
+.service-hero-title {
+    font-size: 3rem;
+    color: var(--white);
+    margin-bottom: 20px;
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.service-hero-subtitle {
+    font-size: 1.3rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 30px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.service-overview {
+    padding: 80px 0;
+    background: var(--white);
+}
+
+.overview-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.overview-text h2 {
+    margin-bottom: 20px;
+}
+
+.overview-text p {
+    color: var(--dark-gray);
+    margin-bottom: 15px;
+    line-height: 1.8;
+}
+
+.overview-features {
+    background: var(--light-gray);
+    padding: 30px;
+    border-radius: 15px;
+}
+
+.overview-features h3 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.overview-features ul {
+    list-style: none;
+}
+
+.overview-features li {
+    padding: 8px 0;
+    color: var(--dark-gray);
+}
+
+.service-included {
+    padding: 80px 0;
+    background: var(--light-gray);
+}
+
+.included-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.included-item {
+    background: var(--white);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+    text-align: center;
+    transition: var(--transition);
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.included-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.included-icon {
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+.included-item h3 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.included-item p {
+    color: var(--dark-gray);
+    font-size: 0.95rem;
+}
+
+.service-process {
+    padding: 80px 0;
+    background: var(--white);
+}
+
+.process-timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.step-number {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+.step-content h3 {
+    color: var(--primary-color);
+    margin-bottom: 5px;
+}
+
+.step-content p {
+    color: var(--dark-gray);
+}
+
+.service-pricing {
+    padding: 80px 0;
+    background: var(--light-gray);
+}
+
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.pricing-card {
+    background: var(--white);
+    padding: 40px 30px;
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+    text-align: center;
+    transition: var(--transition);
+    position: relative;
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.pricing-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-lg);
+}
+
+.pricing-card.featured {
+    border: 3px solid var(--secondary-color);
+}
+
+.popular-badge {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--secondary-color);
+    color: var(--white);
+    padding: 5px 20px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.pricing-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.price {
+    font-size: 2rem;
+    color: var(--secondary-color);
+    font-weight: bold;
+    margin-bottom: 25px;
+}
+
+.pricing-card ul {
+    list-style: none;
+    margin-bottom: 25px;
+    text-align: left;
+}
+
+.pricing-card li {
+    padding: 8px 0;
+    color: var(--dark-gray);
+    border-bottom: 1px solid #eee;
+}
+
+.pricing-card li:last-child {
+    border-bottom: none;
+}
+
+.sample-downloads {
+    padding: 80px 0;
+    background: var(--white);
+}
+
+.samples-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.sample-card {
+    background: var(--light-gray);
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    transition: var(--transition);
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.sample-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow);
+}
+
+.sample-icon {
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+.sample-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+.sample-card p {
+    color: var(--dark-gray);
+    margin-bottom: 15px;
+    font-size: 0.9rem;
+}
+
+.sample-file-type {
+    background: var(--primary-color);
+    color: var(--white);
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    display: inline-block;
+    margin-bottom: 15px;
+}
+
+.download-btn {
+    font-size: 0.85rem;
+    padding: 8px 20px;
+}
+
+.subjects-covered {
+    padding: 80px 0;
+    background: var(--light-gray);
+}
+
+.subjects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.subject-item {
+    background: var(--white);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    font-weight: 600;
+    color: var(--primary-color);
+    transition: var(--transition);
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.subject-item:hover {
+    background: var(--primary-color);
+    color: var(--white);
+    transform: translateY(-3px);
+}
+
+.faq-section {
+    padding: 80px 0;
+    background: var(--white);
+}
+
+.faq-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 30px;
+}
+
+.faq-item {
+    background: var(--light-gray);
+    padding: 25px;
+    border-radius: 10px;
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.faq-question {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+.faq-answer {
+    color: var(--dark-gray);
+    line-height: 1.6;
+}
+
+.why-choose {
+    padding: 80px 0;
+    background: var(--light-gray);
+}
+
+.choose-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.choose-item {
+    background: var(--white);
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.choose-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.choose-icon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.choose-item h3 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.choose-item p {
+    color: var(--dark-gray);
+    font-size: 0.95rem;
+}
+
+.contact-cta {
+    padding: 80px 0;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: var(--white);
+}
+
+.cta-content {
+    text-align: center;
+}
+
+.cta-content h2 {
+    color: var(--white);
+    margin-bottom: 15px;
+}
+
+.cta-content p {
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 30px;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.cta-buttons .btn-secondary {
+    border-color: var(--white);
+    color: var(--white);
+}
+
+.cta-buttons .btn-secondary:hover {
+    background: var(--white);
+    color: var(--primary-color);
+}
+
+/* Responsive Design for Service Pages */
+@media (max-width: 968px) {
+    .overview-content {
+        grid-template-columns: 1fr;
+    }
+
+    .service-hero-title {
+        font-size: 2.5rem;
+    }
+
+    .faq-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .cta-buttons {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 480px) {
+    .service-hero-title {
+        font-size: 2rem;
+    }
+
+    .service-hero-subtitle {
+        font-size: 1rem;
+    }
+
+    .process-step {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .subjects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .cta-buttons .btn {
+        width: 100%;
+    }
+}
+
+/* WhatsApp Floating Button */
+.whatsapp-float {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background: #25D366;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.whatsapp-float:hover {
+    transform: translateY(-5px) scale(1.1);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+}
+
+.whatsapp-float svg {
+    width: 35px;
+    height: 35px;
+}
+
+/* Responsive Design for WhatsApp Button */
+@media (max-width: 480px) {
+    .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        bottom: 20px;
+        right: 20px;
+    }
+
+    .whatsapp-float svg {
+        width: 28px;
+        height: 28px;
     }
 }
