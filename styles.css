@@ -814,6 +814,10 @@ section {
     .about-stats {
         grid-template-columns: 1fr;
     }
+
+    .about-photo {
+        max-width: 100%;
+    }
 }
 
 @media (max-width: 480px) {
