@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Final Year Projects Services | Professional Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/jpeg" href="icon.jpeg">
+    <link rel="stylesheet" href="../assets/styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -17,10 +18,10 @@
                 <h2>Academic<span class="accent">Writer</span></h2>
             </div>
             <ul class="nav-menu" id="nav-menu">
-                <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
-                <li class="nav-item"><a href="index.html#about" class="nav-link">About</a></li>
-                <li class="nav-item"><a href="index.html#services" class="nav-link">Services</a></li>
-                <li class="nav-item"><a href="index.html#contact" class="nav-link">Contact</a></li>
+                <li class="nav-item"><a href="../index.html" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="../index.html#about" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="../index.html#services" class="nav-link">Services</a></li>
+                <li class="nav-item"><a href="../index.html#contact" class="nav-link">Contact</a></li>
             </ul>
             <div class="hamburger" id="hamburger">
                 <span class="bar"></span>
@@ -34,7 +35,7 @@
     <section class="service-hero">
         <div class="container">
             <div class="service-hero-content">
-                <a href="index.html#services" class="back-link">← Back to Services</a>
+                <a href="../index.html#services" class="back-link">← Back to Services</a>
                 <h1 class="service-hero-title fade-in">Technical Reports & Presentations</h1>
                 <p class="service-hero-subtitle fade-in-delay">Technical reports, business writing, presentations, and quantitative/qualitative research with professional documentation</p>
                 <div class="hero-buttons fade-in-delay-2">
@@ -119,47 +120,47 @@
             <h2 class="section-title fade-in">Sample Downloads</h2>
             <p class="section-subtitle fade-in-delay">Download sample documents to understand the quality and format</p>
             <div class="samples-grid">
-                <div class="sample-card fade-in">
+                <div class="sample-card fade-in" data-section="Project Proposal Sample">
                     <div class="sample-icon">💡</div>
                     <h3>Project Proposal Sample</h3>
                     <p>Sample project proposal with proper structure</p>
                     <div class="sample-file-type">PDF Format</div>
-                    <button class="btn btn-primary download-btn">Download Sample</button>
+                    <button class="btn btn-primary download-btn">View Samples</button>
                 </div>
-                <div class="sample-card fade-in-delay">
+                <div class="sample-card fade-in-delay" data-section="SRS Template">
                     <div class="sample-icon">📋</div>
                     <h3>SRS Template</h3>
                     <p>Software Requirements Specification template</p>
                     <div class="sample-file-type">DOCX Format</div>
-                    <button class="btn btn-primary download-btn">Download Template</button>
+                    <button class="btn btn-primary download-btn">View Samples</button>
                 </div>
-                <div class="sample-card fade-in-delay-2">
+                <div class="sample-card fade-in-delay-2" data-section="Documentation Sample">
                     <div class="sample-icon">📊</div>
                     <h3>Documentation Sample</h3>
                     <p>Sample complete project documentation</p>
                     <div class="sample-file-type">PDF Format</div>
-                    <button class="btn btn-primary download-btn">Download Sample</button>
+                    <button class="btn btn-primary download-btn">View Samples</button>
                 </div>
-                <div class="sample-card fade-in">
+                <div class="sample-card fade-in" data-section="Presentation Template">
                     <div class="sample-icon">📊</div>
                     <h3>Presentation Template</h3>
                     <p>Project presentation template</p>
                     <div class="sample-file-type">PPTX Format</div>
-                    <button class="btn btn-primary download-btn">Download Template</button>
+                    <button class="btn btn-primary download-btn">View Samples</button>
                 </div>
-                <div class="sample-card fade-in-delay">
+                <div class="sample-card fade-in-delay" data-section="Viva Questions">
                     <div class="sample-icon">🎯</div>
                     <h3>Viva Questions</h3>
                     <p>Common viva questions with answers</p>
                     <div class="sample-file-type">PDF Format</div>
-                    <button class="btn btn-primary download-btn">Download Questions</button>
+                    <button class="btn btn-primary download-btn">View Samples</button>
                 </div>
-                <div class="sample-card fade-in-delay-2">
+                <div class="sample-card fade-in-delay-2" data-section="Project Report Format">
                     <div class="sample-icon">📝</div>
                     <h3>Project Report Format</h3>
                     <p>Standard project report formatting guide</p>
                     <div class="sample-file-type">PDF Format</div>
-                    <button class="btn btn-primary download-btn">Download Guide</button>
+                    <button class="btn btn-primary download-btn">View Samples</button>
                 </div>
             </div>
         </div>
@@ -265,8 +266,8 @@
                 <h2 class="fade-in">Ready to Start Your Project?</h2>
                 <p class="fade-in-delay">Contact me today to discuss your final year project requirements</p>
                 <div class="cta-buttons fade-in-delay-2">
-                    <a href="index.html#contact" class="btn btn-primary">Contact Me</a>
-                    <a href="index.html#services" class="btn btn-secondary">View Other Services</a>
+                    <a href="../index.html#contact" class="btn btn-primary">Contact Me</a>
+                    <a href="../index.html#services" class="btn btn-secondary">View Other Services</a>
                 </div>
             </div>
         </div>
@@ -311,6 +312,21 @@
         </svg>
     </a>
 
-    <script src="script.js"></script>
+    <script src="../assets/script.js"></script>
+
+    <!-- Sample Modal -->
+    <div id="sampleModal" class="sample-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle">Sample Files</h3>
+                <button class="modal-close" id="modalClose">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div id="modalFiles" class="modal-files-list">
+                    <!-- Files will be loaded dynamically -->
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

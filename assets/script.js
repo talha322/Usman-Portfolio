@@ -1,3 +1,96 @@
+// Sample Modal Functionality
+document.addEventListener('DOMContentLoaded', () => {
+    const sampleModal = document.getElementById('sampleModal');
+    const modalClose = document.getElementById('modalClose');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalFiles = document.getElementById('modalFiles');
+    const sampleCards = document.querySelectorAll('.sample-card');
+
+    // Only initialize modal functionality if elements exist (only on service pages)
+    if (sampleModal && modalClose && modalTitle && modalFiles && sampleCards.length > 0) {
+        
+        // Get service name from page title
+        const getServiceName = () => {
+            const pageTitle = document.querySelector('title').textContent;
+            // Extract service name from title (e.g., "Academic Writing Services" -> "Research Papers & Essays Writing")
+            const serviceMap = {
+                'Academic Writing Services': 'Research Papers & Essays Writing',
+                'Thesis & Dissertation Services': 'PhD Thesis & Dissertation',
+                'Final Year Projects Services': 'Technical Reports & Presentations',
+                'Assignment Help Services': 'Citation & Formatting Services',
+                'Research Assistance Services': 'Advanced Research & Data Analysis',
+                'Editing & Proofreading Services': 'Advanced Editing & AI Detection'
+            };
+            return serviceMap[pageTitle] || pageTitle.replace(' Services', '');
+        };
+
+        // Load files for a section
+        const loadFiles = async (sectionName) => {
+            const serviceName = getServiceName();
+            const jsonPath = `../assets/samples/${encodeURIComponent(serviceName)}/${encodeURIComponent(sectionName)}/files.json`;
+            
+            try {
+                const response = await fetch(jsonPath);
+                if (!response.ok) {
+                    throw new Error('No files found');
+                }
+                
+                const files = await response.json();
+                
+                if (files.length === 0) {
+                    modalFiles.innerHTML = '<div class="no-files">No files available for this section yet.</div>';
+                } else {
+                    const basePath = `../assets/samples/${encodeURIComponent(serviceName)}/${encodeURIComponent(sectionName)}/files`;
+                    modalFiles.innerHTML = files.map(file => `
+                        <div class="modal-file-item">
+                            <span class="modal-file-name">${file.name}</span>
+                            <a href="${basePath}/${encodeURIComponent(file.name)}" download class="modal-file-download">Download</a>
+                        </div>
+                    `).join('');
+                }
+            } catch (error) {
+                modalFiles.innerHTML = '<div class="no-files">Files not found. Sample files will be added soon.</div>';
+            }
+        };
+
+        // Open modal when clicking on sample card
+        sampleCards.forEach(card => {
+            card.addEventListener('click', () => {
+                const sectionName = card.getAttribute('data-section');
+                if (sectionName) {
+                    modalTitle.textContent = sectionName;
+                    modalFiles.innerHTML = '<div class="no-files">Loading files...</div>';
+                    sampleModal.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                    loadFiles(sectionName);
+                }
+            });
+        });
+
+        // Close modal
+        modalClose.addEventListener('click', () => {
+            sampleModal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+
+        // Close modal when clicking outside
+        sampleModal.addEventListener('click', (e) => {
+            if (e.target === sampleModal) {
+                sampleModal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && sampleModal.classList.contains('active')) {
+                sampleModal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+    }
+});
+
 // Mobile Navigation Toggle
 const hamburger = document.getElementById('hamburger');
 const navMenu = document.getElementById('nav-menu');
@@ -66,28 +159,30 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Contact Form Handling
+// Contact Form Handling (only on index.html)
 const contactForm = document.getElementById('contact-form');
 
-contactForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    
-    // Get form data
-    const formData = new FormData(contactForm);
-    const name = contactForm.querySelector('input[type="text"]').value;
-    const email = contactForm.querySelector('input[type="email"]').value;
-    const subject = contactForm.querySelectorAll('input[type="text"]')[1].value;
-    const message = contactForm.querySelector('textarea').value;
-    
-    // Simple validation
-    if (name && email && message) {
-        // Show success message (in real implementation, you would send this to a server)
-        alert('Thank you for your message! I will get back to you within 24 hours.');
-        contactForm.reset();
-    } else {
-        alert('Please fill in all required fields.');
-    }
-});
+if (contactForm) {
+    contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        // Get form data
+        const formData = new FormData(contactForm);
+        const name = contactForm.querySelector('input[type="text"]').value;
+        const email = contactForm.querySelector('input[type="email"]').value;
+        const subject = contactForm.querySelectorAll('input[type="text"]')[1].value;
+        const message = contactForm.querySelector('textarea').value;
+        
+        // Simple validation
+        if (name && email && message) {
+            // Show success message (in real implementation, you would send this to a server)
+            alert('Thank you for your message! I will get back to you within 24 hours.');
+            contactForm.reset();
+        } else {
+            alert('Please fill in all required fields.');
+        }
+    });
+}
 
 // Counter Animation for Stats
 const animateCounter = (element, target, duration = 2000) => {
